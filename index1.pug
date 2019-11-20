@@ -1,0 +1,49 @@
+html
+    head
+        title Demo   
+    body
+        div#form
+            form(action="/submit-index1" method="get" name='adding')
+                lable Uname : &nbsp
+                input(type="text" name="uname")
+                br
+                br
+                lable gender :
+                br
+                input(type="radio",name="gender", value='Male', checked=gender=="Male")
+                | Male
+
+                input(type="radio",name="gender", value='Female',checked=gender=="Female")
+                | Female
+                br
+                br
+                label Location &nbsp
+                select(name='Location', id='')
+                    each val in ['Chennai','Bangalore','Hyderabad','Trivandrum','Mumbai']
+                        option=val
+                br
+                br
+            div#add
+                button(type='button', name='abc') add
+
+            script(src="https://code.jquery.com/jquery-3.4.1.js")
+            script.
+                $(document).ready(function(){
+                    var count=1;
+                    alert("Jquery Working");
+                    $('#add').click(function(){
+                        if(count<5)
+                        {
+                            alert(count);
+                            $('[name="adding"]').append('<hr><lable>Uname : </lable> <input tupe="text" name="uname"><br><br><lable>gender : </lable><br><input type="radio" name="gender" value="male" checked>Male<input type="radio" name="gender" value="female">Female<br><br><lable>Location <select name="Location"><option value="Chennai">Chennai</option><option value="Chennai">Chennai</option><option value="Bangalore">Bangalore</option><option value="Hyderabad">Hyderabad</option><option value="Trivandrum">Trivandrum</option><option value="Mumbai">Mumbai</option>');                   
+                            count++;
+                        }
+                        else
+                        {
+                            alert("5 times completed");
+                            $('[name="adding"]').append('<input style="margin-left:60%" type="submit">');
+                        }
+                     });
+                });      
+
+
